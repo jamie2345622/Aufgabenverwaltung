@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f3">
+  <title>Meine Aufgaben</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow" id="date"></p>
+        <h1>Hallo Ela</h1>
+      </div>
+      <div class="progress-ring" id="progressRing" aria-label="Fortschritt">
+        <span id="progressText">0%</span>
+      </div>
+    </header>
+
+    <section class="add-panel" aria-label="Neue Aufgabe hinzufügen">
+      <form id="taskForm">
+        <label for="taskInput">Was möchtest du erledigen?</label>
+        <div class="input-row">
+          <input id="taskInput" type="text" maxlength="100" placeholder="Neue Aufgabe eingeben" autocomplete="off">
+          <button type="submit" aria-label="Aufgabe hinzufügen">Hinzufügen</button>
+        </div>
+      </form>
+    </section>
+
+    <nav class="tabs" aria-label="Aufgabenliste auswählen">
+      <button class="tab active" type="button" data-view="today">
+        Heute <span id="todayCount">0</span>
+      </button>
+      <button class="tab" type="button" data-view="tomorrow">
+        Morgen <span id="tomorrowCount">0</span>
+      </button>
+      <button class="tab" type="button" data-view="done">
+        Erledigt <span id="doneCount">0</span>
+      </button>
+    </nav>
+
+    <section class="list-section" aria-live="polite">
+      <div class="list-heading">
+        <h2 id="listTitle">Heute</h2>
+        <button class="clear-button" id="clearDone" type="button">Erledigte löschen</button>
+      </div>
+      <div class="task-list" id="taskList"></div>
+    </section>
+  </main>
+
+  <template id="taskTemplate">
+    <article class="task">
+      <button class="check" type="button" aria-label="Aufgabe erledigen">
+        <span aria-hidden="true"></span>
+      </button>
+      <p class="task-title"></p>
+      <button class="move" type="button" aria-label="Auf morgen verschieben">Morgen</button>
+      <button class="delete" type="button" aria-label="Aufgabe löschen">
+        <span aria-hidden="true">×</span>
+      </button>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
